@@ -19,6 +19,16 @@ This script:
 - `curl`
 - `jq`
 
+## Configuration
+
+Before running, set your API base URL at the top of `checkpoints.sh`:
+
+```bash
+API_BASE="https://your-api-node-here"
+```
+
+Point this at your own DeroGold node or any compatible block explorer API.
+
 ## Usage
 
 ```bash
@@ -60,10 +70,10 @@ namespace CryptoNote
 
 ## API
 
-Block data is fetched from the DeroGold public API:
+The script expects a node/explorer API with these endpoints:
 
-- `GET https://api.derogold.online/height` — current chain height
-- `GET https://api.derogold.online/block/headers/{height}/bulk` — bulk block headers up to the given height
+- `GET {API_BASE}/height` — returns `{"height": N}`
+- `GET {API_BASE}/block/headers/{height}/bulk` — returns an array of block headers up to the given height
 
 ## License
 
